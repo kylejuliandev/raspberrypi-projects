@@ -5,20 +5,6 @@ services:
       service: pihole
     environment:
       VIRTUAL_HOST: "pihole.homeserver.pi"
-      
-  media-wiki:
-    extends:
-      file: ./media-wiki/media-wiki-services.yaml
-      service: mediawiki
-    environment:
-      VIRTUAL_HOST: "wiki.homeserver.pi"
-    depends_on:
-      - media-wiki-db
-  
-  media-wiki-db:
-    extends:
-      file: ./media-wiki/media-wiki-services.yaml
-      service: database
 
   nginx-proxy:
     extends:
