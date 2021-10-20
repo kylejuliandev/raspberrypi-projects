@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  mediawiki:
+    image: mediawiki:latest
+    expose:
+      - "80"
+    volumes:
+      - '/var/mediawiki/www/html/image/:/var/www/html/images'
+      # After initial setup, download LocalSettings.php to the same directory as
+      # this yaml and uncomment the following line and use compose to restart
+      # the mediawiki service
+      # - ./LocalSettings.php:/var/www/html/LocalSettings.php
+    restart: unless-stopped
+
+  database:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: homeserver_wiki
+      MYSQL_USER: '${MEDIAWIKI_MYSQL_USERNAME}'
+      MYSQL_PASSWORD: '${MEDIAWIKI_MYSQL_PASSWORD}'
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    restart: unless-stopped
