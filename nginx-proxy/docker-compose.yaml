@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 services:
   nginx-proxy:
@@ -7,6 +7,8 @@ services:
       - "80:80"
     volumes:
       - '/var/run/docker.sock:/tmp/docker.sock:ro'
+    networks:
+      - nginx
 
   whoami:
     image: jwilder/whoami
@@ -15,3 +17,8 @@ services:
     environment:
       - VIRTUAL_HOST=whoami.local
       - VIRTUAL_PORT=8000
+    networks:
+      - nginx
+
+networks:
+  nginx:

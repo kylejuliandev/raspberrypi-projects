@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
@@ -19,3 +19,8 @@ services:
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
+    networks:
+      - nginx
+
+networks:
+  nginx:
