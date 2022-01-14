@@ -1,0 +1,3 @@
+[submodule ".\\nginx-proxy\\whoami"]
+	path = .\\nginx-proxy\\whoami
+	url = git@github.com:kylejuliandev/whoami.git

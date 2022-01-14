@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
 
   whoami:
-    image: jwilder/whoami
+    build: whoami
     expose:
       - "8000"
     environment:
