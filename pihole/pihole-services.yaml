@@ -12,7 +12,7 @@ services:
     expose:
       - "80"
     environment:
-      TZ: 'America/Chicago'
+      TZ: 'Europe/London'
       WEBPASSWORD: '${PIHOLEPASSWORD}'
     volumes:
       - '/etc/pihole/etc-pihole/:/etc/pihole/'
