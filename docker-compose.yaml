@@ -1,11 +1,4 @@
 services:
-  pihole:
-    extends:
-      file: ./pihole/pihole-services.yaml
-      service: pihole
-    environment:
-      VIRTUAL_HOST: "pihole.homeserver.pi"
-
   nginx-proxy:
     extends:
       file: ./nginx-proxy/nginx-services.yaml
@@ -17,3 +10,13 @@ services:
     extends:
       file: ./nginx-proxy/nginx-services.yaml
       service: whoami
+    environment:
+      VIRTUAL_HOST: "whoami.local"
+      VIRTUAL_PORT: 8000
+
+  pihole:
+      extends:
+        file: ./pihole/pihole-services.yaml
+        service: pihole
+      environment:
+        VIRTUAL_HOST: "pihole.homeserver.pi"
